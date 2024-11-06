@@ -1,6 +1,22 @@
-# Nuxt Minimal Starter
+# Day 3 - 使用指令建立 Layouts 題目
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+請 clone 這一份模板，完成以下條件 :
+
+- 使用 Nuxt3 Layout 功能拆分前台與後台的頁首頁尾區塊
+- 前台 index.vue 與 about.vue 頁面皆使用 default.vue 模板 ( 預設 Layout ）
+- 後台 admin/index.vue 與 admin/order.vue 頁面皆使用 admin.vue 模板 ( 具名 Layout )
+
+## 安裝
+
+以下將會引導你如何安裝此專案到你的電腦上。
+
+Node.js 版本為：`20.18.0`
+
+### 取得專案
+
+```bash
+git clone -b day3-layout git@github.com:letcla0624/nuxt3-daily-hw.git day3-layout
+```
 
 ## Setup
 
