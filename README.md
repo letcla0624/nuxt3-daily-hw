@@ -15,7 +15,7 @@ Node.js 版本為：`20.18.0`
 ### 取得專案
 
 ```bash
-git clone -b day3-layout git@github.com:letcla0624/nuxt3-daily-hw.git day3-layout
+git clone -b day3-layout https://github.com/letcla0624/nuxt3-daily-hw.git day3-layout
 ```
 
 ## Setup
