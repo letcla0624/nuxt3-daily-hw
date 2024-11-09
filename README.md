@@ -17,7 +17,15 @@ Node.js 版本為：`20.18.0`
 ### 取得專案
 
 ```bash
-git clone -b day5-composable git@github.com:letcla0624/nuxt3-daily-hw.git day5-composable
+git clone -b day5-composable https://github.com/letcla0624/nuxt3-daily-hw.git day5-composable
+```
+
+### 環境變數設定
+
+複製 .env.example 檔案給 .env。
+
+```bash
+cp .env.example .env
 ```
 
 ## Setup
