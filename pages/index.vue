@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <p class="text">Page: index</p>
+    <h1 class="text">Page: index</h1>
     <div>
       <button type="button" class="btn btn-primary">Primary</button>
       <button type="button" class="btn btn-secondary">Secondary</button>
@@ -21,6 +21,7 @@
 <style lang="scss" scoped>
 .text {
   color: $primary;
-  font-size: $fs-xl;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-normal;
 }
 </style>
