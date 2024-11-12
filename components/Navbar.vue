@@ -28,8 +28,9 @@ const isRoomActive = computed(() => route.path.startsWith("/room"));
               to="/room"
               class="nav-link"
               :class="{ active: isRoomActive }"
-              >房型</NuxtLink
             >
+              房型
+            </NuxtLink>
           </li>
         </ul>
       </div>
