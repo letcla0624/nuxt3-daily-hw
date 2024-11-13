@@ -21,7 +21,15 @@ Node.js 版本為：`20.18.0`
 ### 取得專案
 
 ```bash
-git clone -b day7-nested-router https://github.com/letcla0624/nuxt3-daily-hw.git day6-nested-router
+git clone -b day7-nested-router https://github.com/letcla0624/nuxt3-daily-hw.git day7-nested-router
+```
+
+### 環境變數設定
+
+複製 .env.example 檔案給 .env。
+
+```bash
+cp .env.example .env
 ```
 
 ## Setup

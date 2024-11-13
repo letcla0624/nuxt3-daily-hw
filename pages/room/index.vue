@@ -1,10 +1,10 @@
 <script setup lang="ts">
 interface Room {
   status: boolean;
-  result: RoomData[];
+  result: RoomResult[];
 }
 
-interface RoomData {
+interface RoomResult {
   _id: string;
   name: string;
   description: string;
@@ -27,18 +27,19 @@ interface LayoutInfo {
   isProvide: boolean;
 }
 
-const router = useRouter();
-const roomsList = ref<RoomData[] | undefined>([]);
 // 使用 fetch 或 axios 串接 前台房型 API ( GET )
 // apiUrl : https://nuxr3.zeabur.app/api/v1/rooms
 // response 回傳後，將資料寫入 roomsList 變數
 // 使用 roomsList 變數在下方 template 渲染列表
 
-const { data } = await useFetch<Room>("https://nuxr3.zeabur.app/api/v1/rooms");
+const router = useRouter();
+const runtimeConfig = useRuntimeConfig();
 
-onMounted(() => {
-  roomsList.value = data.value?.result;
-});
+const { data: room } = await useFetch<Room>(
+  `${runtimeConfig.public.apiUrl}/rooms`
+);
+
+const roomsList = ref<RoomResult[] | undefined>(room.value?.result);
 </script>
 
 <template>
