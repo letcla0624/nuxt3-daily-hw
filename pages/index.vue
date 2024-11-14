@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+navigateTo("/register");
+</script>
 
 <template>
   <h1>首頁頁面</h1>

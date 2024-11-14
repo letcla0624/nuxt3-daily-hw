@@ -1,27 +1,41 @@
-# Day 7 - 嵌套式路由、useRouter & useRoute 題目
+# Day 9 - $fetch 與 ofetch 題目
 
-請 clone 這一份模板，將 `/pages/room.vue` 改為嵌套式路由，並實作房型列表與房型詳細頁面（不包含動態路由):
+![題目示意圖](image.png)
 
-- 房型列表頁面的 URL 需對應 `/room/`，在此頁面使用 ES6 Fetch 或 axios 串接 [前台房型 API](https://nuxr3.zeabur.app/swagger/#/Rooms%20-%20%E6%88%BF%E5%9E%8B) ，將資料寫入 `roomList` 變數 ，並在模板的 v-for 使用 roomList 渲染資料。
-- 承上，模板的 HTML 、CSS 已有在 `/pages/room.vue` 中提供，需將其移至房型列表頁面並補上 API 串接的 JavaScript 。
-- 房型詳細頁面的 URL 需對應 `/room/_id` ，在此頁顯示 “房型詳細頁面” h2 標題。
-- 房型列表頁面的列表渲染之後，經點擊可以換頁至 `/room/_id` 。
+請 clone 這一份模板，實作帳號註冊功能 :
 
-> 需注意 : `/room/_id` 的 `/_id` 是靜態路由，非動態路由，請建立名稱為 `_id.vue` 的檔案。
+- 在 `/pages/register.vue` 使用模板提供的操作介面填寫註冊表單。點擊 “註冊” 按鈕後使用 Nuxt3 提供的方法串接旅館的 [註冊 API](https://nuxr3.zeabur.app/swagger/#/Users%20-%20%E4%BD%BF%E7%94%A8%E8%80%85/post_api_v1_user_signup) ，將請求送出。
+- 需使用 try catch 處理請求成功與失敗的訊息，請求成功與失敗皆使用 [sweetAlert2 套件](https://sweetalert2.github.io/)顯示訊息。sweetAlert2 套件在模板已有安裝與引入，不需再額外設定。
 
-- 在房型詳細頁面中提供一個「回上一頁」的按鈕，點擊後可以使用 router 方法返回 `/room/` 的房型列表頁面。
-- 確保房型頁面的巢狀路由內容能正確顯示。
+```jsx
+$swal.fire({
+  position: "center",
+  icon: ... ,
+  title: ... ,
+  showConfirmButton: false,
+  timer: 1500,
+});
+```
+
+- 表單不需處理表單驗證、身分驗證、檢查登入狀態以及存入 cookie。
+- [註冊 API](https://nuxr3.zeabur.app/swagger/#/Users%20-%20%E4%BD%BF%E7%94%A8%E8%80%85/post_api_v1_user_signup) 夾帶的請求體（Request Body）格式，需要注意以下地方 :
+  - 所有欄位都必填。
+  - 密碼需要至少 8 碼以上，並英數混合。
+  - 電話格式可以是手機號碼與市內電話。
+  - birthday 格式可以是 "yyyy-mm-dd”。
+  - zipcode 需要對照到各縣市各區的郵遞區號，可以參考 [郵遞區號速查一覽表](https://c2e.ezbox.idv.tw/zipcode.php)。
+- 串接 API 時需避免在伺服器端與客戶端重複發送請求。
 
 ## 安裝
 
 以下將會引導你如何安裝此專案到你的電腦上。
 
-Node.js 版本為：`20.18.0`
+Node.js 版本為：`22.11.0`
 
 ### 取得專案
 
 ```bash
-git clone -b day7-nested-router https://github.com/letcla0624/nuxt3-daily-hw.git day7-nested-router
+git clone -b day9-nuxt-fetch https://github.com/letcla0624/nuxt3-daily-hw.git day9-nuxt-fetch
 ```
 
 ### 環境變數設定
