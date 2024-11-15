@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getRoomDetails } from "~/actions/roomActions";
+import type { Room, RoomResult } from "~/types/room";
 
 // 串接 API 取得房型詳細資料
 // API path : https://nuxr3.zeabur.app/api/v1/rooms/{id}
@@ -7,7 +7,15 @@ import { getRoomDetails } from "~/actions/roomActions";
 
 const router = useRouter();
 const route = useRoute();
-const room = await getRoomDetails(route.params.id as string); // 取得詳細房型
+const config = useRuntimeConfig();
+
+// 取得詳細房型
+const roomId = route.params.id;
+const { data: room } = await useAsyncData(
+  "room",
+  () => $fetch<Room<RoomResult>>(`${config.public.apiUrl}/rooms/${roomId}`),
+  { transform: (res) => res.result }
+);
 </script>
 
 <template>

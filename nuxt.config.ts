@@ -2,6 +2,11 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
+  runtimeConfig: {
+    public: {
+      apiUrl: "",
+    },
+  },
   // 全域套用的 scss 樣式
   css: ["@/assets/stylesheets/all.scss"],
   vite: {
@@ -12,9 +17,6 @@ export default defineNuxtConfig({
           additionalData: `@import "@/assets/stylesheets/_variables.scss";`,
         },
       },
-    },
-    define: {
-      "process.env": process.env,
     },
   },
   router: {
