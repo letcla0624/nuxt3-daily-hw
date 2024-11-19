@@ -90,6 +90,10 @@ export default defineNuxtConfig({
             "Freyja 旅館位於高雄，提供頂級的住宿體驗。享受絕美市景與高級設施，讓您的每一刻都充滿奢華與舒適。立即預訂，開啟難忘的住宿之旅！",
         },
       ],
+      link: [
+        { rel: "icon", href: "/favicon.ico" },
+        { rel: "canonical", href: "https://freyja.travel.com.tw" },
+      ],
     },
   },
 });
