@@ -33,16 +33,16 @@ const { data: roomObject } = await useFetch(`/rooms/${id}`, {
 */
 
 useSeoMeta({
-  title: ` Freyja | ${roomObject.value.name}`,
-  description: `${roomObject.value.description}`,
-  ogTitle: `Freyja | ${roomObject.value.name}`,
-  ogDescription: `${roomObject.value.description}`,
-  ogImage: `${roomObject.value.imageUrl}`,
-  ogUrl: `https://freyja.travel.com.tw/room/${roomObject.value._id}`,
+  title: () => ` Freyja | ${roomObject.value.name}`,
+  description: () => `${roomObject.value.description}`,
+  ogTitle: () => `Freyja | ${roomObject.value.name}`,
+  ogDescription: () => `${roomObject.value.description}`,
+  ogImage: () => `${roomObject.value.imageUrl}`,
+  ogUrl: () => `https://freyja.travel.com.tw/room/${roomObject.value._id}`,
   twitterCard: "summary_large_image",
-  twitterTitle: `Freyja | ${roomObject.value.name}`,
-  twitterDescription: `${roomObject.value.description}`,
-  twitterImage: `${roomObject.value.imageUrl}`,
+  twitterTitle: () => `Freyja | ${roomObject.value.name}`,
+  twitterDescription: () => `${roomObject.value.description}`,
+  twitterImage: () => `${roomObject.value.imageUrl}`,
 });
 
 const isProvide = function (isProvideBoolean = false) {
