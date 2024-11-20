@@ -18,22 +18,13 @@ const { data: roomObject } = await useFetch(`/rooms/${id}`, {
   },
 });
 
-// 使用 useSeoMeta  將 roomObject 的資訊寫入 SEO Meta
-/* 請撰寫 useSeoMeta({ }) 渲染出下方的 HTML 結構，並將 {{ }}  改成使用 roomObject 物件的資料。
-<title> Freyja | {{ 房型名稱 }}</title>
-<meta name="description" content="{{ 房型描述 }}">
-<meta property="og:title" content="Freyja | {{ 房型名稱 }} ">
-<meta property="og:description" content="{{ 房型描述 }}">
-<meta property="og:image" content="{{房型主圖}}">
-<meta property="og:url" content="https://freyja.travel.com.tw/room/{房型 id }">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Freyja | {{ 房型名稱 }}">
-<meta name="twitter:description" content="{{ 房型描述 }}">
-<meta name="twitter:image" content="{{房型主圖}}">
-*/
+/* 
+請將 useSeoMeta({ }) 改成 Nuxt3 SEO 元件的寫法
+重複邏輯的地方可以使用 computed 
 
 useSeoMeta({
-  title: () => ` Freyja | ${roomObject.value.name}`,
+  title: roomObject.value.name,
+  titleTemplate: (title) => `Freyja | ${title}`,
   description: () => `${roomObject.value.description}`,
   ogTitle: () => `Freyja | ${roomObject.value.name}`,
   ogDescription: () => `${roomObject.value.description}`,
@@ -44,6 +35,13 @@ useSeoMeta({
   twitterDescription: () => `${roomObject.value.description}`,
   twitterImage: () => `${roomObject.value.imageUrl}`,
 });
+*/
+
+// 組字串
+const titleComp = computed(() => `Freyja | ${roomObject.value.name}`);
+const urlComp = computed(
+  () => `https://freyja.travel.com.tw/room/${roomObject.value._id}`
+);
 
 const isProvide = function (isProvideBoolean = false) {
   return isProvideBoolean ? "提供" : "未提供";
@@ -51,6 +49,20 @@ const isProvide = function (isProvideBoolean = false) {
 </script>
 
 <template>
+  <Head>
+    <!-- 請在此處作答，使用元件設定頁面的 SEO Meta  -->
+    <Title>{{ titleComp }}</Title>
+    <Meta name="description" :content="roomObject.description" />
+    <Meta property="og:title" :content="titleComp" />
+    <Meta property="og:description" :content="roomObject.description" />
+    <Meta property="og:image" :content="roomObject.imageUrl" />
+    <Meta property="og:url" :content="urlComp" />
+    <Meta name="twitter:card" content="summary_large_image" />
+    <Meta name="twitter:title" :content="titleComp" />
+    <Meta name="twitter:description" :content="roomObject.description" />
+    <Meta name="twitter:image" :content="roomObject.imageUrl" />
+  </Head>
+
   <h2>房型詳細頁面</h2>
   <div class="container">
     <button class="btn btn-primary" @click="router.go(-1)">回上一頁</button>
