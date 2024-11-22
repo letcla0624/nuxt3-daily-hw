@@ -3,7 +3,7 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a class="navbar-brand" href="#">Day14 題目</a>
+      <a class="navbar-brand" href="#">題目</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -22,6 +22,9 @@
           </li>
           <li class="nav-item">
             <NuxtLink class="nav-link" to="/login">登入</NuxtLink>
+          </li>
+          <li class="nav-item">
+            <NuxtLink class="nav-link" to="/orders">訂單</NuxtLink>
           </li>
         </ul>
       </div>

@@ -18,23 +18,10 @@ const userLoginObject = ref({
 const { sweetAlert } = useSweetAlert();
 const runtimeConfig = useRuntimeConfig();
 
+const router = useRouter();
 const isDisabled = ref(false);
 
 const loginAccount = async (body: Login) => {
-  /*
-  1. 串接旅館的 登入 API
-  2. 登入成功後，使用 useCookie() 將 token 寫入名稱為 “auth” 的 cookie
-  3. 需使用 try catch 處理請求
-  4. 請求成功與失敗皆使用 sweetAlert2 套件顯示訊息
- $swal.fire({
-   position: "center",
-   icon: ...,
-   title: ...,
-   showConfirmButton: false,
-   timer: 1500,
- });
-  */
-
   try {
     isDisabled.value = true;
 
@@ -57,6 +44,9 @@ const loginAccount = async (body: Login) => {
       email: "",
       password: "",
     };
+
+    // 登入後跳轉到 orders 頁面
+    router.push("/orders");
   } catch (error: any) {
     console.dir(error);
     sweetAlert("error", "登入失敗", error.data.message);
@@ -84,9 +74,10 @@ const loginAccount = async (body: Login) => {
                   v-model="userLoginObject.email"
                   required
                 />
-                <label for="email"
-                  >信箱 <span class="text-danger">*</span></label
-                >
+                <label for="email">
+                  信箱
+                  <span class="text-danger">*</span>
+                </label>
               </div>
 
               <div class="form-floating mb-4">
@@ -99,17 +90,26 @@ const loginAccount = async (body: Login) => {
                   v-model="userLoginObject.password"
                   required
                 />
-                <label for="password"
-                  >密碼 <span class="text-danger">*</span></label
-                >
+                <label for="password">
+                  密碼
+                  <span class="text-danger">*</span>
+                </label>
               </div>
-              <button
-                class="btn btn-lg btn-primary w-100"
-                type="submit"
-                :disabled="isDisabled"
-              >
-                登入
-              </button>
+              <div class="d-flex gap-4">
+                <button
+                  class="btn btn-lg btn-primary w-50"
+                  type="submit"
+                  :disabled="isDisabled"
+                >
+                  登入
+                </button>
+                <NuxtLink
+                  to="/register"
+                  class="btn btn-lg btn-outline-primary w-50"
+                >
+                  還沒有帳號
+                </NuxtLink>
+              </div>
             </form>
           </div>
         </div>
