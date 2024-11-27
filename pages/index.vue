@@ -1,10 +1,28 @@
 <script setup lang="ts">
-const route = useRoute();
+// https://www.npmjs.com/package/vue-loading-overlay
+
+const { $useLoading } = useNuxtApp();
+
+// loading 樣式調整
+const loading = $useLoading({
+  loader: "dots",
+  color: "Goldenrod",
+  "background-color": "#000",
+  opacity: 1,
+});
+
+function openLoading() {
+  // 開啟讀取效果
+  const loader = loading.show();
+  setTimeout(() => {
+    // 關閉讀取效果
+    loader.hide();
+  }, 1000);
+}
 </script>
 
 <template>
-  <div>
-    <h1>Page: 首頁</h1>
-    <p>目前路由的路徑 - route.fullPath 為：{{ route.fullPath }}</p>
-  </div>
+  <button type="button" @click="openLoading">開啟 Loading 效果</button>
 </template>
+
+<style scoped></style>
