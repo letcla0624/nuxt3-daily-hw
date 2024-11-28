@@ -1,38 +1,79 @@
-# Day 6 - NuxtLink 與 路由基礎配置 題目
-
-![題目示意圖](image.png)
+# Day 19 - Nuxt3 狀態管理 - Pinia - ( 1 ) 問題
 
 請 clone 這一份模板，完成以下條件 :
 
-- 建立前台首頁 ( `index.vue` ) 以及房型頁面 (`room.vue`) 。前台首頁對應的路由路徑為 `/` ，房型頁面的路由路徑為`/room`。
-- 頁面上只需呈現純文字。前台首頁顯示 “首頁頁面” ，房型頁面 顯示“房型頁面”
+- 在 `nuxt.config.ts` 添加 `@pinia/nuxt` 模組，讓它在 Nuxt 中可以運作。
+- 在 `stores/booking.js` 建立一個名為 `useBookingStore` 的 Pina store ，用來管理訂單資訊。
 
-```html
-<!-- 前台首頁 -->
-<template>
-  <h1>首頁頁面</h1>
-</template>
+  ```jsx
+  // /stores/booking.js
+  // 建立名稱為 useBookingStore 的 store
 
-<!-- /room 房型頁面 -->
-<template>
-  <h1>房型頁面</h1>
-</template>
-```
+  // export const xxx = ... ;
+  ```
 
-- 將 app.vue 預設的 `<NuxtWelcome />` 歡迎改成可以顯示頁面的內容 。
-- 在 `layouts/default.vue` 的 Layout 中已有載入 Bootstrap5 SCSS 及 Navbar 元件。需在 `layouts/default.vue` 的 Navbar 加入 `<NuxtLink>` 元件，實現切換頁面的功能。
-- 修改路由預設的 `linkActiveClass` 和 `linkExactActiveClass` ，使 `<NuxtLink>` 匹配到路由的時候可以套用 Bootstrap5 的 `.active` class 。
+- 使用 `/pages/index.vue` 的 `createOrder()` 方法建立訂單，將被選取的房型 `roomInfo` 和訂房人資料 `userInfo` 整合為 `bookingResult`，並將 `bookingResult` 移至 `useBookingStore` 中進行狀態管理 ( 格式如下 )。完成後，使用 `useRouter` 的方法導引至 `/order` 頁面。
+
+  ```jsx
+
+  /pages/index.vue
+
+  // 訂單資訊的格式
+  const bookingResult = ref({});
+
+  // 建立訂單
+  const createOrder = (roomInfo, userInfo) => {
+    // 1. 將選取的房型以及訂房人資訊整合成訂單資訊 ( bookingResult )
+    /* 格式
+    {
+      ...roomInfo,  // 將被選取的房型以解構的方式合併
+      user: {
+        ...userInfo, // 將訂房人資料以解構的方式合併
+      },
+    };
+    */
+    // 2. 將 bookingResult 改成用 pinia 管理狀態
+
+
+    // 3. 使用 router 將頁面導引至 /order
+  };
+  ```
+
+- 進入 `/order` 頁面後，從 `useBookingStore` 中取出訂單資料 `bookingResult` 並顯示於頁面中。如果沒有訂單資料，顯示 "目前沒有預訂資訊"。
+
+  ```jsx
+  // /pages/order
+  <script setup>
+  // 1. 從 useBookingStore 取出資料 bookingResult
+
+  const bookingResult = ref({});
+  </script>
+
+  <template>
+    <div class="container mt-5">
+      <template v-if="bookingResult.name">
+        <!-- 2. 渲染至 HTML  ( 在模板有提供 HTML 結構 )-->
+
+      </template>
+      <template v-else>
+        <h1>目前沒有預訂資訊</h1>
+      </template>
+      <NuxtLink class="btn btn-primary" to="/">回上一頁</NuxtLink>
+    </div>
+  </template>
+
+  ```
 
 ## 安裝
 
 以下將會引導你如何安裝此專案到你的電腦上。
 
-Node.js 版本為：`20.18.0`
+Node.js 版本為：`22.11.0`
 
 ### 取得專案
 
 ```bash
-git clone -b day6-router https://github.com/letcla0624/nuxt3-daily-hw.git day6-router
+git clone -b day19-pinia https://github.com/letcla0624/nuxt3-daily-hw.git day19-pinia
 ```
 
 ## Setup

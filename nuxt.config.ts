@@ -21,4 +21,8 @@ export default defineNuxtConfig({
       linkExactActiveClass: "active",
     },
   },
+  modules: ["@pinia/nuxt"],
+  imports: {
+    dirs: ["stores"],
+  },
 });
