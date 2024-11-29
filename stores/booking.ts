@@ -1,6 +1,6 @@
 // 建立名稱為 useBookingStore 的 store
 
-interface RoomInfo {
+export interface RoomInfo {
   _id: string;
   name: string;
   description: string;
@@ -23,34 +23,33 @@ interface LayoutInfo {
   isProvide: boolean;
 }
 
-interface userInfo {
-  address: object;
-  name: string;
-  phone: string;
-  email: string;
-  county: string;
-  district: string;
-  detail: string;
-}
-
-interface OrderInfo {
-  roomInfo: RoomInfo;
-  user: {
-    userInfo: userInfo;
-  };
+export interface RoomResult<T> {
+  status: boolean;
+  result: T;
 }
 
 export const useBookingStore = defineStore("booking", () => {
-  // 訂單資訊的格式
-  const bookingResult = ref({});
+  const bookingInfo = ref<RoomInfo>({
+    _id: "",
+    name: "",
+    description: "",
+    imageUrl: "",
+    imageUrlList: [],
+    areaInfo: "",
+    bedInfo: "",
+    maxPeople: 0,
+    price: 0,
+    status: 0,
+    layoutInfo: [],
+    facilityInfo: [],
+    amenityInfo: [],
+    createdAt: "",
+    updatedAt: "",
+  });
 
-  // 加入訂單資訊
-  const addOrderInfo = (orderInfo: OrderInfo) => {
-    bookingResult.value = orderInfo;
+  const setBookingInfo = (bookingData: RoomInfo) => {
+    bookingInfo.value = bookingData;
   };
 
-  return {
-    bookingResult,
-    addOrderInfo,
-  };
+  return { bookingInfo, setBookingInfo };
 });
