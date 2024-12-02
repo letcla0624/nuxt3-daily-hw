@@ -8,6 +8,15 @@ importers:
 
   .:
     dependencies:
+      '@vee-validate/i18n':
+        specifier: ^4.14.7
+        version: 4.14.7
+      '@vee-validate/nuxt':
+        specifier: ^4.14.7
+        version: 4.14.7(magicast@0.3.5)(rollup@4.24.4)(vue@3.5.12(typescript@5.6.3))
+      '@vee-validate/rules':
+        specifier: ^4.14.7
+        version: 4.14.7(vue@3.5.12(typescript@5.6.3))
       bootstrap:
         specifier: ^5.3.3
         version: 5.3.3(@popperjs/core@2.11.8)
@@ -869,6 +878,15 @@ packages:
     peerDependencies:
       vue: '>=2.7 || >=3'
 
+  '@vee-validate/i18n@4.14.7':
+    resolution: {integrity: sha512-CTGNXC0d6tMSi6pEbf+jW1ZsLhvtNClgKDna8QmHD9G/8U8W9MlyQfgcQMqmpUz0kUHyGHNZ3B13jzILUeVcXw==}
+
+  '@vee-validate/nuxt@4.14.7':
+    resolution: {integrity: sha512-TegW+5tG0qwX3KDJKWVuwlaOX7nkZ7DsDt0NwhN0GvY523pD96pVh0UzsYNAXgRXlJtuq9Xte7+oGbK638KkFA==}
+
+  '@vee-validate/rules@4.14.7':
+    resolution: {integrity: sha512-DK2Frj6s8eQZgjeSRYHOIX3heFX1aic8taKY6q4RPY/5JtEkLDCxyWP3EBt1bteoiSDGDADrmahwqkcfJShhoA==}
+
   '@vercel/nft@0.27.5':
     resolution: {integrity: sha512-b2A7M+4yMHdWKY7xCC+kBEcnMrpaSE84CnuauTjhKKoCEeej0byJMAB8h/RBVnw/HdZOAFVcxR0Izr3LL24FwA==}
     engines: {node: '>=16'}
@@ -928,6 +946,9 @@ packages:
   '@vue/devtools-api@6.6.4':
     resolution: {integrity: sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==}
 
+  '@vue/devtools-api@7.6.7':
+    resolution: {integrity: sha512-PV4I31WaV2rfA8RGauM+69uFEzWkqtP561RiLU2wK+Ce85u3zyKW3aoESlLCNzkc4y0JaJyskH6zAE3xWOP8+Q==}
+
   '@vue/devtools-core@7.4.4':
     resolution: {integrity: sha512-DLxgA3DfeADkRzhAfm3G2Rw/cWxub64SdP5b+s5dwL30+whOGj+QNhmyFpwZ8ZTrHDFRIPj0RqNzJ8IRR1pz7w==}
     peerDependencies:
@@ -936,8 +957,14 @@ packages:
   '@vue/devtools-kit@7.4.4':
     resolution: {integrity: sha512-awK/4NfsUG0nQ7qnTM37m7ZkEUMREyPh8taFCX+uQYps/MTFEum0AD05VeGDRMXwWvMmGIcWX9xp8ZiBddY0jw==}
 
+  '@vue/devtools-kit@7.6.7':
+    resolution: {integrity: sha512-V8/jrXY/swHgnblABG9U4QCbE60c6RuPasmv2d9FvVqc5d94t1vDiESuvRmdNJBdWz4/D3q6ffgyAfRVjwHYEw==}
+
   '@vue/devtools-shared@7.6.2':
     resolution: {integrity: sha512-lcjyJ7hCC0W0kNwnCGMLVTMvDLoZgjcq9BvboPgS+6jQyDul7fpzRSKTGtGhCHoxrDox7qBAKGbAl2Rcf7GE1A==}
+
+  '@vue/devtools-shared@7.6.7':
+    resolution: {integrity: sha512-QggO6SviAsolrePAXZ/sA1dSicSPt4TueZibCvydfhNDieL1lAuyMTgQDGst7TEvMGb4vgYv2I+1sDkO4jWNnw==}
 
   '@vue/reactivity@3.5.12':
     resolution: {integrity: sha512-UzaN3Da7xnJXdz4Okb/BGbAaomRHc3RdoWqTzlvd9+WBR5m3J39J1fGcHes7U3za0ruYn/iYy/a1euhMEHvTAg==}
@@ -2874,6 +2901,11 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
+  vee-validate@4.14.7:
+    resolution: {integrity: sha512-XVb1gBFJR57equ11HEI8uxNqFJkwvCP/b+p+saDPQYaW7k45cdF5jsYPEJud1o29GD6h2y7Awm7Qfm89yKi74A==}
+    peerDependencies:
+      vue: ^3.4.26
+
   vite-hot-client@0.2.3:
     resolution: {integrity: sha512-rOGAV7rUlUHX89fP2p2v0A2WWvV3QMX2UYq0fRqsWSvFvev4atHWqjwGoKaZT1VTKyLGk533ecu3eyd0o59CAg==}
     peerDependencies:
@@ -3983,6 +4015,26 @@ snapshots:
       unhead: 1.11.11
       vue: 3.5.12(typescript@5.6.3)
 
+  '@vee-validate/i18n@4.14.7': {}
+
+  '@vee-validate/nuxt@4.14.7(magicast@0.3.5)(rollup@4.24.4)(vue@3.5.12(typescript@5.6.3))':
+    dependencies:
+      '@nuxt/kit': 3.14.0(magicast@0.3.5)(rollup@4.24.4)
+      local-pkg: 0.5.0
+      vee-validate: 4.14.7(vue@3.5.12(typescript@5.6.3))
+    transitivePeerDependencies:
+      - magicast
+      - rollup
+      - supports-color
+      - vue
+      - webpack-sources
+
+  '@vee-validate/rules@4.14.7(vue@3.5.12(typescript@5.6.3))':
+    dependencies:
+      vee-validate: 4.14.7(vue@3.5.12(typescript@5.6.3))
+    transitivePeerDependencies:
+      - vue
+
   '@vercel/nft@0.27.5':
     dependencies:
       '@mapbox/node-pre-gyp': 1.0.11
@@ -4091,6 +4143,10 @@ snapshots:
 
   '@vue/devtools-api@6.6.4': {}
 
+  '@vue/devtools-api@7.6.7':
+    dependencies:
+      '@vue/devtools-kit': 7.6.7
+
   '@vue/devtools-core@7.4.4(vite@5.4.10(@types/node@22.9.0)(sass@1.70.0)(terser@5.36.0))(vue@3.5.12(typescript@5.6.3))':
     dependencies:
       '@vue/devtools-kit': 7.4.4
@@ -4113,7 +4169,21 @@ snapshots:
       speakingurl: 14.0.1
       superjson: 2.2.1
 
+  '@vue/devtools-kit@7.6.7':
+    dependencies:
+      '@vue/devtools-shared': 7.6.7
+      birpc: 0.2.19
+      hookable: 5.5.3
+      mitt: 3.0.1
+      perfect-debounce: 1.0.0
+      speakingurl: 14.0.1
+      superjson: 2.2.1
+
   '@vue/devtools-shared@7.6.2':
+    dependencies:
+      rfdc: 1.4.1
+
+  '@vue/devtools-shared@7.6.7':
     dependencies:
       rfdc: 1.4.1
 
@@ -6238,6 +6308,12 @@ snapshots:
   urlpattern-polyfill@8.0.2: {}
 
   util-deprecate@1.0.2: {}
+
+  vee-validate@4.14.7(vue@3.5.12(typescript@5.6.3)):
+    dependencies:
+      '@vue/devtools-api': 7.6.7
+      type-fest: 4.26.1
+      vue: 3.5.12(typescript@5.6.3)
 
   vite-hot-client@0.2.3(vite@5.4.10(@types/node@22.9.0)(sass@1.70.0)(terser@5.36.0)):
     dependencies:
