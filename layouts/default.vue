@@ -3,7 +3,7 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a class="navbar-brand" href="#">Day21 題目</a>
+      <a class="navbar-brand" href="#">Day22 題目</a>
       <button
         class="navbar-toggler"
         type="button"
